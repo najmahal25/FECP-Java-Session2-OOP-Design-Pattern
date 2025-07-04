@@ -18,28 +18,41 @@ public class Main {
         System.out.println("4. Exit");
     }
 
-    private static Patient registerPatient(String name, String patientID) {
-        return new Patient(name, patientID);
+    private static Patient registerPatient() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter Patient Name: ");
+        String newPatientName = scanner.nextLine();
+
+        System.out.print("Enter Patient ID: ");
+        String newPatientID = scanner.nextLine();
+
+        System.out.println("Patient Registered!");
+        return new Patient(newPatientName, newPatientID);
     }
 
     private static void addService(Patient patient) {
         if (patient == null) {
             System.out.println("Register a patient first.");
             return;
-        }else{
-            Scanner s = new Scanner(System.in);
-            System.out.println("Available Services: Xray (500), Surgery (12000), Consultation (700)");
-            System.out.print("Select service to add: ");
-            String serviceSelected = s.next();
-            ServiceFactory serviceFactory = new ServiceFactory();
-            Service service = serviceFactory.getService(serviceSelected);
-            if (service == null){
-                System.out.println("Service is not available.");
-            }else{
-                patient.addBill(service.addServiceToBill());
-                System.out.println("Service added to patient bill. ");
-            }
         }
+
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Available Services: Xray (500), Surgery (12000), Consultation (700)");
+        System.out.print("Select service to add: ");
+
+        String serviceSelected = scanner.next();
+        ServiceFactory serviceFactory = new ServiceFactory();
+        Service service = serviceFactory.getService(serviceSelected);
+
+        if (service == null){
+            System.out.println("Service is not available.");
+            return;
+        }
+
+        patient.addBill(service.addServiceToBill());
+        System.out.println("Service added to patient bill.");
     }
 
     private static void computeBill(Patient patient) {
@@ -87,14 +100,7 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    System.out.print("Enter Patient Name: ");
-                    String newPatientName = scanner.nextLine();
-
-                    System.out.print("Enter Patient ID: ");
-                    String newPatientID = scanner.nextLine();
-
-                    patient = registerPatient(newPatientName, newPatientID);
-                    System.out.println("Patient Registered!");
+                    patient = registerPatient();
                     break;
                 case 2:
                     addService(patient);
