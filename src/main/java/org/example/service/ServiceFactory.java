@@ -14,10 +14,6 @@ public class ServiceFactory {
                 return new Surgery();
             default:
                 return null;
-
-
-
-
         }
     }
 }

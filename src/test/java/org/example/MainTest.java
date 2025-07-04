@@ -15,7 +15,6 @@ public class MainTest {
 
     @BeforeEach
     void setup() {
-
         patient = new Patient("Juan Dela Cruz", "PD101");
         ServiceFactory serviceFactory = new ServiceFactory();
     }
@@ -57,5 +56,4 @@ public class MainTest {
         patient.addBill(surgeryService.addServiceToBill());
         assertEquals(patient.getBill(),previousBill + 12000);
     }
-
 }
