@@ -21,8 +21,9 @@ Our project is a simple hospital billing system where you can do the following:
 
 ## Unit Testing for the program
 The following test cases are considered for the system: <br/>
-1. Checks the correct patient name
-2. Checks the correct patient ID
-3. creates various service types (X-ray, Consultation, and Surgery) and add it to its bill
-4. 
-    
+1. Checks the correct patient name and patient ID
+![patientTest.png](patientTest.png)
+2. Creates various service types (X-ray, Consultation, and Surgery) and add it to its bill
+![servicesTest.png](servicesTest.png)
+3. Checks if insurance type is set and correctly applied to the billing
+![billingStrategyTest.png](billingStrategyTest.png)
