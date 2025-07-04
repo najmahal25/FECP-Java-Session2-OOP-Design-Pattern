@@ -1,5 +1,10 @@
 package org.example;
 
+import org.example.billing.CashBilling;
+import org.example.billing.HMOBilling;
+import org.example.billing.SeniorBilling;
+import org.example.model.BillingStrategy;
+import org.example.model.Patient;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

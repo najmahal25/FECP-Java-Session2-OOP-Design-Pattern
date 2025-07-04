@@ -1,5 +1,12 @@
 package org.example;
 
+import org.example.model.Patient;
+import org.example.model.Service;
+
+import org.example.service.Consultation;
+import org.example.service.ServiceFactory;
+import org.example.service.Surgery;
+import org.example.service.Xray;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 

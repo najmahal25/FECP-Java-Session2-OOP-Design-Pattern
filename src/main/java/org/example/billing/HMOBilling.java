@@ -1,4 +1,6 @@
-package org.example;
+package org.example.billing;
+
+import org.example.model.BillingStrategy;
 
 public class HMOBilling implements BillingStrategy {
     @Override

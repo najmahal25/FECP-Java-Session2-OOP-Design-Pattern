@@ -1,5 +1,12 @@
 package org.example;
 
+import org.example.billing.CashBilling;
+import org.example.billing.HMOBilling;
+import org.example.billing.SeniorBilling;
+import org.example.model.Patient;
+import org.example.model.Service;
+import org.example.service.ServiceFactory;
+
 import java.util.Scanner;
 
 public class Main {
