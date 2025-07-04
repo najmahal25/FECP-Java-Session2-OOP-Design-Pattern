@@ -8,7 +8,9 @@ public class MainTest {
 
     @BeforeEach
     void setup() {
+
         patient = new Patient("Juan Dela Cruz", "PD101");
+        ServiceFactory serviceFactory = new ServiceFactory();
     }
 
     @Test
@@ -24,4 +26,29 @@ public class MainTest {
         String expected = "PD101";
         assertEquals(expected, patientID);
     }
+
+    @Test
+    void createXrayServiceAndAddToPatientBill(){
+        Service xrayService = new Xray();
+        double previousBill = patient.getBill();
+        patient.addBill(xrayService.addServiceToBill());
+        assertEquals(patient.getBill(),previousBill + 500);
+    }
+
+    @Test
+    void createConsultationServiceAndAddToPatientBill(){
+        Service consultationService = new Consultation();
+        double previousBill = patient.getBill();
+        patient.addBill(consultationService.addServiceToBill());
+        assertEquals(patient.getBill(),previousBill + 700);
+    }
+
+    @Test
+    void createSurgeryServiceAndAddToPatientBill(){
+        Service surgeryService = new Surgery();
+        double previousBill = patient.getBill();
+        patient.addBill(surgeryService.addServiceToBill());
+        assertEquals(patient.getBill(),previousBill + 12000);
+    }
+
 }
