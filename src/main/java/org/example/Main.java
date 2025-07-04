@@ -11,24 +11,32 @@ public class Main {
         System.out.println("4. Exit");
     }
 
-    private static void registerPatient() {
-        // Call register patient
-        System.out.println("Register Patient");
+    private static Patient registerPatient(String name, String patientID) {
+        return new Patient(name, patientID);
     }
 
-    private static void addService() {
-        // Call add service
-        System.out.println("Add Service");
+    private static void addService(Patient patient) {
+        if (patient == null) {
+            System.out.println("Register a patient first.");
+            return;
+        }
+
+        // patient.addBill(double bill) to add service billing
     }
 
-    private static void computeBill() {
-        // Call compute billing
-        System.out.println("Compute Billing");
+    private static void computeBill(Patient patient) {
+        if (patient == null) {
+            System.out.println("Register a patient first.");
+            return;
+        }
+
+        // patient.getBill() to get service billing
     }
 
     public static void main(String[] args) {
         // Initialize variables
         Scanner scanner = new Scanner(System.in);
+        Patient patient = null;
         int choice = 0;
 
         displayMenu();
@@ -40,10 +48,17 @@ public class Main {
 
             switch (choice) {
                 case 1:
-                    registerPatient();
+                    System.out.print("Enter Patient Name: ");
+                    String newPatientName = scanner.nextLine();
+
+                    System.out.print("Enter Patient ID: ");
+                    String newPatientID = scanner.nextLine();
+
+                    patient = registerPatient(newPatientName, newPatientID);
+                    System.out.println("Patient Registered!");
                     break;
                 case 2:
-                    addService();
+                    addService(patient);
                     break;
                 case 3:
                     computeBill();
