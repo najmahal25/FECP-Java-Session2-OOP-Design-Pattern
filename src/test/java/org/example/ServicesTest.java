@@ -1,36 +1,21 @@
 package org.example;
 
+
+import org.example.service.Xray;
 import org.example.model.Patient;
 import org.example.model.Service;
-
-import org.example.service.Consultation;
-import org.example.service.ServiceFactory;
 import org.example.service.Surgery;
-import org.example.service.Xray;
+import org.example.service.Consultation;
+
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class MainTest {
+public class ServicesTest {
     Patient patient;
 
     @BeforeEach
     void setup() {
         patient = new Patient("Juan Dela Cruz", "PD101");
-        ServiceFactory serviceFactory = new ServiceFactory();
-    }
-
-    @Test
-    void shouldReturnCorrectPatientName() {
-        String patientName = patient.getName();
-        String expected = "Juan Dela Cruz";
-        assertEquals(expected, patientName);
-    }
-
-    @Test
-    void shouldReturnCorrectPatientID() {
-        String patientID = patient.getPatientID();
-        String expected = "PD101";
-        assertEquals(expected, patientID);
     }
 
     @Test
