@@ -27,3 +27,42 @@ The following test cases are considered for the system: <br/>
 ![servicesTest.png](servicesTest.png)
 3. Checks if insurance type is set and correctly applied to the billing
 ![billingStrategyTest.png](billingStrategyTest.png)
+
+## Project Directory
+```
+├── README.md
+├── addService.png
+├── billingStrategyTest.png
+├── computeBill.png
+├── patientTest.png
+├── pom.xml
+├── registerPatient.png
+├── servicesTest.png
+├── src
+│   ├── main
+│   │   └── java
+│   │       └── org
+│   │           └── example
+│   │               ├── Main.java
+│   │               ├── billing
+│   │               │   ├── CashBilling.java
+│   │               │   ├── HMOBilling.java
+│   │               │   └── SeniorBilling.java
+│   │               ├── model
+│   │               │   ├── BillingStrategy.java
+│   │               │   ├── Patient.java
+│   │               │   └── Service.java
+│   │               └── service
+│   │                   ├── Consultation.java
+│   │                   ├── ServiceFactory.java
+│   │                   ├── Surgery.java
+│   │                   └── Xray.java
+│   └── test
+│       └── java
+│           └── org
+│               └── example
+│                   ├── BillingStrategyTest.java
+│                   ├── PatientTest.java
+│                   └── ServicesTest.java
+└── unitTesting.png
+```
