@@ -46,10 +46,10 @@ public class Patient {
     public void setBillingStrategy(BillingStrategy billingStrategy) { this.billingStrategy = billingStrategy; };
 
     public void generateBill() {
-        System.out.printf("Original cost: %.2f", bill);
+        System.out.printf("Original cost: %.2f\n", bill);
         double discountedBill = billingStrategy.applyDiscount(bill);
         this.bill = discountedBill;
-        System.out.printf("Discounted cost: %.2f", discountedBill);
+        System.out.printf("Discounted cost: %.2f\n", discountedBill);
         System.out.println("Bill generated successfully!");
     }
 }
