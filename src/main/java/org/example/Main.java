@@ -30,7 +30,28 @@ public class Main {
             return;
         }
 
-        // patient.getBill() to get service billing
+        if (patient.getBill() == 0) {
+            System.out.println("No services added yet.");
+            return;
+        }
+
+        System.out.print("Enter insurance type (HMO/Cash/Senior): ");
+        Scanner scanner = new Scanner(System.in);
+        String insuranceType = scanner.next();
+
+        switch (insuranceType.toLowerCase()) {
+            case "hmo":
+                patient.setBillingStrategy(new HMOBilling());
+                break;
+            case "senior":
+                patient.setBillingStrategy(new SeniorBilling());
+                break;
+            default:
+                patient.setBillingStrategy(new CashBilling());
+                break;
+        }
+
+        patient.generateBill();
     }
 
     public static void main(String[] args) {
@@ -61,7 +82,7 @@ public class Main {
                     addService(patient);
                     break;
                 case 3:
-                    computeBill();
+                    computeBill(patient);
                     break;
                 case 4:
                     System.out.println("Thank you for using this system.");
