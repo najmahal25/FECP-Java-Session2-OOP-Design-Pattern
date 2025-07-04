@@ -1,4 +1,6 @@
-package org.example;
+package org.example.model;
+
+import org.example.billing.CashBilling;
 
 public class Patient {
     private String name;
@@ -40,15 +42,18 @@ public class Patient {
         this.bill += bill;
     }
 
-    // getters and setters for billing strategy
+    // Getters and setters for billing strategy
     public BillingStrategy getBillingStrategy() { return billingStrategy; };
 
     public void setBillingStrategy(BillingStrategy billingStrategy) { this.billingStrategy = billingStrategy; };
 
+    // Generate a bill
     public void generateBill() {
         System.out.printf("Original cost: %.2f\n", bill);
+
         double discountedBill = billingStrategy.applyDiscount(bill);
         this.bill = discountedBill;
+
         System.out.printf("Discounted cost: %.2f\n", discountedBill);
         System.out.println("Bill generated successfully!");
     }

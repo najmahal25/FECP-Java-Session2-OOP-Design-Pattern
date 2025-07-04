@@ -1,4 +1,6 @@
-package org.example;
+package org.example.service;
+
+import org.example.model.Service;
 
 public class ServiceFactory {
     public Service getService(String serviceType){
@@ -12,10 +14,6 @@ public class ServiceFactory {
                 return new Surgery();
             default:
                 return null;
-
-
-
-
         }
     }
 }
