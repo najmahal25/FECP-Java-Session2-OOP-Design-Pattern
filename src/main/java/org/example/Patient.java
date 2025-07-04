@@ -50,5 +50,6 @@ public class Patient {
         double discountedBill = billingStrategy.applyDiscount(bill);
         this.bill = discountedBill;
         System.out.printf("Discounted cost: %.2f", discountedBill);
+        System.out.println("Bill generated successfully!");
     }
 }
