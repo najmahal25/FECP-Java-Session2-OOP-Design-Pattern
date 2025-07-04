@@ -23,7 +23,7 @@ public class ServicesTest {
         Service xrayService = new Xray();
         double previousBill = patient.getBill();
         patient.addBill(xrayService.addServiceToBill());
-        assertEquals(patient.getBill(),previousBill + 500);
+        assertEquals(patient.getBill(),previousBill + 500, 0.001);
     }
 
     @Test
@@ -31,7 +31,7 @@ public class ServicesTest {
         Service consultationService = new Consultation();
         double previousBill = patient.getBill();
         patient.addBill(consultationService.addServiceToBill());
-        assertEquals(patient.getBill(),previousBill + 700);
+        assertEquals(patient.getBill(),previousBill + 700, 0.001);
     }
 
     @Test
