@@ -19,9 +19,20 @@ public class Main {
         if (patient == null) {
             System.out.println("Register a patient first.");
             return;
+        }else{
+            Scanner s = new Scanner(System.in);
+            System.out.println("Available Services: Xray (500), Surgery (12000), Consultation (700)");
+            System.out.print("Select service to add: ");
+            String serviceSelected = s.next();
+            ServiceFactory serviceFactory = new ServiceFactory();
+            Service service = serviceFactory.getService(serviceSelected);
+            if (service == null){
+                System.out.println("Service is not available.");
+            }else{
+                patient.addBill(service.addServiceToBill());
+                System.out.println("Service added to patient bill. ");
+            }
         }
-
-        // patient.addBill(double bill) to add service billing
     }
 
     private static void computeBill(Patient patient) {
@@ -61,7 +72,7 @@ public class Main {
                     addService(patient);
                     break;
                 case 3:
-                    computeBill();
+                    computeBill(patient);
                     break;
                 case 4:
                     System.out.println("Thank you for using this system.");
